@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BookCurry - The Art of Computer Programming</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span id="logo">
+                <a href="./">BookCurry</a>
+            </span>
+        </nav>
+    </header>
+    <main>
+        <div class="detail-head">
+            <figure class="main-cover-fig">
+                <img class="cover" src="./images/art-of-computer-programming.jpg"
+                    alt="Cover for Pragmatic Programmer by David Thoman and Andrew Hunt">
+            </figure>
+            <h1>The Art of Computer Programming</h1>
+            <h2>by Donald Knuth</h2>
+            The Art of Computer Programming (TAOCP) is a comprehensive monograph written by the computer scientist
+            Donald Knuth presenting programming algorithms and their analysis. Volumes 1–5 are intended to represent the
+            central core of computer programming for sequential machines.
+
+            Knuth began the project, originally conceived as a single book with twelve chapters, in 1962. The first
+            three volumes of what was then expected to be a seven-volume set were published in 1968, 1969, and 1973.
+            Work began in earnest on Volume 4 in 1973, but was suspended in 1977 for work on typesetting prompted by the
+            second edition of Volume 2. Writing of the final copy of Volume 4A began in longhand in 2001, and the first
+            online pre-fascicle, 2A, appeared later in 2001.
+
+            Volume 4B is expected to consist of Fascicles 5 and 6. The manuscript was sent to the publisher on August 1,
+            2022, with publication expected in October 2022. Fascicle 7, planned for Volume 4C, was the subject of
+            Knuth's talk on August 3, 2022.
+            <a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming">Wikipedia</a>,
+            <a href="https://openlibrary.org/books/OL5411091M/The_art_of_computer_programming">Open
+                Library</a>
+
+        </div>
+        <div class="detail-body">
+            <h1>Comments from HackerNews</h1>
+            <figure class="comment">
+                <blockquote>
+                    I just received an alert from my credit card company that Pearson charged me for the box set, so 4B
+                    appears to be ready early. It's listed as "published" already at
+                    https://www.informit.com/store/art-of-computer-programming-v....
+                </blockquote>
+                <div class="comment-source">
+                    <cite><a href="https://news.ycombinator.com/item?id=32528041">macintux, 2022-08-20</a></cite>
+                </div>
+            </figure>
+            <figure class="comment">
+                <blockquote>
+                    <span class="commtext c00">And its first reference is to what I consider the definitive reference on
+                        the subject, at least for the state of the art in 1968: the Art of Computer Programming. Vol. 2:
+                        Seminumerical Algorithms.<p>I also think the only additions that might be needed to that are
+                            mentions of newer algorithms that are comparatively simple, but better. The subject itself
+                            is pretty well-trodden.</p>
+                        <p>Knuth does mention the extremely simple additive random number generator</p>
+                        <p></p>
+                        <pre><code>  Xn = (Xn-24 + Xn-55) mod m
+</code></pre>
+                        (And says that this can be used directly with floating point values to produce floats in the
+                        range [0,1))<p>It uses 55 words of state (initialized to not all be even), needs only about ten
+                            simple instructions to implement (in particular, no multiplications or divisions), has
+                            period of at least 2^55-1, and Knuth said it’s very good in practice, isn’t known to be bad,
+                            and ends with (in the 1980 second edition of volume 2, with the first edition being from
+                            1968):</p>
+                        <p><i>The only reason it is difficult to recommend sequence (7) wholeheartedly is that there is
+                                very little theory to prove that it does or does not have desirable randomness
+                                properties; essentially all we know for sure is that the period is very long, and this
+                                is not enough”</i></p>
+                        <p>I can’t find anything more recent about this RNG. Has it been forgotten, or was it shown to
+                            be bad in some important sense?
+                        </p>
+                        <div class="reply"></div>
+                    </span>
+                </blockquote>
+                <div class="comment-source">
+                    <cite><a href="https://news.ycombinator.com/item?id=32369673">Someone, 2022-08-06</a></cite>
+                </div>
+            </figure>
+            <figure class="comment">
+                <blockquote>
+                    &gt; There is also the notion of being able to make better decisions with more "connection material"
+                    in your mind. The more you know, the more likely you are to make a novel connection.<p>I completely
+                        agree with this, but I don't believe all blog posts and technical articles are written equal :)
+                    </p>
+                    <p>You have:</p>
+                    <p>1. Your garden variety tech blog post about somebody's experience using X or Y framework or just
+                        a general techy blog. (I'm thinking a joel spolsky or coding horror post here)</p>
+                    <p>2. A technical dive into a specific problem/framework.</p>
+                    <p>3. A raymond chen style blog post explaining the reasons behind some weird api.</p>
+                    <p>And then you have the deeper material:</p>
+                    <p>4. The Pragmatic Programmer. Not too dense and can still be enjoyed at a leisurely pace, but
+                        contains enough deep thinking type of material to motivate you.</p>
+                    <p>5. A comprehensive reference book about a specific framework or concept (Game Engine Architecture
+                        and OpenGL SuperBible come to mind).</p>
+                    <p>6. The Art of Computer Programming.</p>
+                    <p>I only consider the last 3 productivity material. The first 3 can be helpful in rare instances,
+                        but they're more akin to watching a 3blue1brown video where I say "That was interesting" and
+                        proceed to forget all about that topic.
+                    </p>
+                    <div class="reply"></div>
+                </blockquote>
+                <div class="comment-source">
+                    <cite><a href="https://news.ycombinator.com/item?id=32339268">_gabe_, 2022-08-04</a></cite>
+                </div>
+
+            </figure>
+        </div>
+    </main>
+    <footer>
+        &copy; 2022 Edward Ross

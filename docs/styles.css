@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: hsl(280, 30%, 75%);
+    font-family: 'Open Sans', arial, sans-serif;
+    font-size: 14px;
+
+    /* Flex container to push footer to bottom of page */
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    background-color: hsl(280, 60%, 30%);
+    font-size: 1.5em;
+}
+
+header, header a, header a:visited {
+  color: hsl(100, 50%, 50%);
+  text-decoration: none;
+
+}
+
+nav {
+    margin-left: 10px;
+    padding: 10px 0;
+}
+
+main {
+    margin: 0 10vw;
+    color: hsl(100, 10%, 15%);
+}
+
+main a {
+  color: hsl(100, 80%, 60%);
+}
+
+main a:visited {
+  color: hsl(100, 80%, 80%);
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.125rem;
+}
+
+.book-card {
+    display: flex;
+    max-width: 700px;
+    min-height: 150px;
+    margin: 15px auto;
+    padding: 5px 10px;
+    border: 2px solid hsl(280, 60%, 30%);
+    background-color: hsl(280, 50%, 70%);
+    border-radius: 10px;
+}
+
+.detail-head {
+    overflow: hidden;
+}
+
+.detail-head h1 {
+    overflow: hidden;
+    text-align: left;
+}
+
+.main-cover-fig {
+    float: inline-start;
+}
+
+.main-cover-fig img {
+    width: 25vw;
+    max-width: 300px;
+    height: auto;
+}
+
+.book-title {
+    font-weight: bold;
+}
+
+.book-authors {
+    padding-top: 0.5em;
+}
+
+.book-details {
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    padding: 10px;
+    flex: 1 1 auto;
+}
+
+.book-comment-count {
+    margin-top: auto;
+    font-style: italic;
+    text-align: end;
+}
+
+.book-card figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.book-card img {
+    width: 15vw;
+    height: auto;
+    flex: 0 0 auto;
+}
+
+.comment {
+    border: 2px solid hsl(280, 60%, 30%);
+    background-color: hsl(280, 50%, 70%);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.comment-source  {
+    text-align: end;
+}
+
+footer {
+    margin-top: auto;
+    padding: 5px 20px;
+    background-color: hsl(280, 60%, 30%);
+    font-size: 0.75rem;
+    color: hsl(100, 50%, 50%);
+}
