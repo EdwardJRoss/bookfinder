@@ -1,1 +1,8 @@
 data/*
+.vscode/
+.pytest_cache/
+
+.env
+
+**/__pycache__/
+
