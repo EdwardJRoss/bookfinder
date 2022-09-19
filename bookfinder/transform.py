@@ -1,6 +1,8 @@
 from graphlib import TopologicalSorter
 from typing import TypeVar
 
+import xxhash  # type: ignore
+
 T = TypeVar("T")
 
 
@@ -18,3 +20,13 @@ def get_root_mapping(parent_dict: dict[T, T]) -> dict[T, T]:
         else:
             root_dict[node] = root_dict[parent_dict[node]]
     return root_dict
+
+
+def hash_bucket(s: float, salt: str = "hnbooks") -> int:
+    """Return a deterministic hash bucket in 0-99.
+
+    Use a float for consistency with the original splitting.
+    """
+    bucket = xxhash.xxh32_intdigest(str(s) + salt) % 100
+    assert 0 <= bucket < 100
+    return bucket

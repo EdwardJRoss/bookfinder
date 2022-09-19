@@ -3,7 +3,7 @@ from graphlib import CycleError
 from hypothesis import assume, given
 from hypothesis import strategies as st
 
-from bookfinder.transform import get_root_mapping
+from bookfinder.transform import get_root_mapping, hash_bucket
 
 
 def test_get_root_mapping():
@@ -37,3 +37,8 @@ def test_get_root_mapping_parent_root(parent_dict):
         assume(False)
     for child, parent in parent_dict.items():
         assert root_dict[child] == root_dict[parent]
+
+
+@given(st.floats())
+def test_hash_bucket(s):
+    hash_bucket(s)
