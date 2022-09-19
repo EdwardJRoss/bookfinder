@@ -39,6 +39,6 @@ def test_get_root_mapping_parent_root(parent_dict):
         assert root_dict[child] == root_dict[parent]
 
 
-@given(st.floats())
+@given(st.floats(allow_nan=False))
 def test_hash_bucket(s):
     hash_bucket(s)

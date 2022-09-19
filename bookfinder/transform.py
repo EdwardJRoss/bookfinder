@@ -1,4 +1,5 @@
 from graphlib import TopologicalSorter
+from math import isnan
 from typing import TypeVar
 
 import xxhash  # type: ignore
@@ -29,6 +30,8 @@ def hash_bucket(s: float, salt: str = "hnbooks") -> int:
 
     Use a float for consistency with the original splitting.
     """
+    if isnan(s):
+        raise ValueError("NaN is not a valid input")
     bucket = xxhash.xxh32_intdigest(str(s) + salt) % 100
     assert 0 <= bucket < 100
     return bucket
