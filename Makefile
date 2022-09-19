@@ -32,6 +32,7 @@ lint:   ## Static analysis
 	@echo "Linting code..."
 	python -m black --check $(PYTHON_DIRS)
 	python -m pyflakes $(PYTHON_DIRS)
+	python -m mypy $(PYTHON_DIRS)
 
 test: ## Run unit tests
 	python -m pytest test/

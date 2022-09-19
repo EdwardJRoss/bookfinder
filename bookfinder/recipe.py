@@ -1,8 +1,8 @@
-import prodigy
-from prodigy.components.loaders import JSONL
-from prodigy.models.ner import EntityRecognizer
-from prodigy.components.preprocess import split_sentences
-from prodigy.util import split_string
+import prodigy  # type: ignore
+from prodigy.components.loaders import JSONL  # type: ignore
+from prodigy.models.ner import EntityRecognizer  # type: ignore
+from prodigy.components.preprocess import split_sentences  # type: ignore
+from prodigy.util import split_string  # type: ignore
 import spacy
 from typing import List, Optional, Iterable, Dict, Tuple
 

@@ -6,6 +6,7 @@ pandas
 
 # development
 black
+mypy
 pyflakes
 autoflake
 
