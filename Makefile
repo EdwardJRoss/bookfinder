@@ -4,9 +4,15 @@ help:
 	@echo "Available commands:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
+reqs: # Update and sync requirements.in
+reqs: requirements.txt
+	python -m piptools sync
 
-reqs: ## Build requirements
+requirements.txt: requirements.in
 	python -m piptools compile requirements.in > requirements.txt
+
+test: ## Run unit tests
+	python -m pytest tests/
 
 install: ## Install
 install:
