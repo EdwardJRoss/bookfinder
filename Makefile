@@ -13,7 +13,7 @@ install:
 	@echo "Installing dependencies..."
 	python -m pip install --upgrade pip setuptools wheel
 	python -m pip install pip-tools
-	python -m piptools sync
+	python -m piptools sync requirements.txt requirements-model.txt
 	python -m pip install prodigy -f https://${PRODIGY_KEY}@download.prodi.gy
 
 requirements.txt: requirements.in
