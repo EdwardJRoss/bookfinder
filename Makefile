@@ -6,9 +6,9 @@ PYTHON_DIRS = bookfinder test
 
 help:
 	@echo "Available commands:"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-reqs: # Update and sync requirements.in
+reqs: ## Update and sync requirements.in
 reqs: requirements.txt requirements-model.txt
 	python -m piptools sync requirements.txt requirements-model.txt
 
