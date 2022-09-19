@@ -6,7 +6,10 @@ T = TypeVar("T")
 
 def get_root_mapping(parent_dict: dict[T, T]) -> dict[T, T]:
     """Return a mapping of each node to its root node."""
-    root_dict = {}
+    root_dict = {node: parent for node, parent in parent_dict.items() if node == parent}
+    parent_dict = {
+        node: parent for node, parent in parent_dict.items() if node != parent
+    }
     for node in TopologicalSorter(
         {k: [v] for k, v in parent_dict.items()}
     ).static_order():
