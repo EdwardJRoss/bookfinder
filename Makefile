@@ -5,11 +5,11 @@ help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 reqs: # Update and sync requirements.in
-reqs: requirements.txt
-	python -m piptools sync
+reqs: requirements.txt requirements-model.txt
+	python -m piptools sync requirements.txt requirements-model.txt
 
 requirements.txt: requirements.in
-	python -m piptools compile requirements.in > requirements.txt
+	python -m piptools compile requirements.in
 
 test: ## Run unit tests
 	python -m pytest tests/
@@ -21,7 +21,6 @@ install:
 	python -m pip install pip-tools
 	python -m piptools sync
 	python -m pip install prodigy -f https://${PRODIGY_KEY}@download.prodi.gy
-	python -m spacy download en_core_web_trf
 
 
 fetch: ## Fetch data
