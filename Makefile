@@ -1,5 +1,7 @@
 include .env
 
+.PHONY: test
+
 help:
 	@echo "Available commands:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -12,7 +14,7 @@ requirements.txt: requirements.in
 	python -m piptools compile requirements.in
 
 test: ## Run unit tests
-	python -m pytest tests/
+	python -m pytest test/
 
 install: ## Install
 install:
