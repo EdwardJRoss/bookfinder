@@ -10,6 +10,8 @@ attrs==22.1.0
     #   pytest
 autoflake==1.6.0
     # via -r requirements.in
+beartype==0.11.0
+    # via -r requirements.in
 black==22.8.0
     # via -r requirements.in
 blis==0.9.1

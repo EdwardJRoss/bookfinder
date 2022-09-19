@@ -2,6 +2,7 @@ from graphlib import TopologicalSorter
 from typing import TypeVar
 
 import xxhash  # type: ignore
+from beartype import beartype
 
 T = TypeVar("T")
 
@@ -22,6 +23,7 @@ def get_root_mapping(parent_dict: dict[T, T]) -> dict[T, T]:
     return root_dict
 
 
+@beartype
 def hash_bucket(s: float, salt: str = "hnbooks") -> int:
     """Return a deterministic hash bucket in 0-99.
 

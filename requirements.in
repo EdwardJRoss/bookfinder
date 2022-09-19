@@ -3,6 +3,7 @@ spacy>=3.4.0,<3.5.0
 kaggle
 xxhash
 pandas
+beartype
 
 # development
 black
