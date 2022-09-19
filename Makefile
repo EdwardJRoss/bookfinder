@@ -25,11 +25,13 @@ reqs: requirements.txt requirements-model.txt
 
 format: ## Format code
 	@echo "Formatting code..."
+	python -m isort --profile black $(PYTHON_DIRS)
 	python -m black $(PYTHON_DIRS)
 	python -m autoflake --in-place --recursive --remove-all-unused-imports $(PYTHON_DIRS)
 
 lint:   ## Static analysis
 	@echo "Linting code..."
+	python -m isort --profile black --check-only $(PYTHON_DIRS)
 	python -m black --check $(PYTHON_DIRS)
 	python -m pyflakes $(PYTHON_DIRS)
 	python -m mypy $(PYTHON_DIRS)

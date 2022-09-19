@@ -9,6 +9,7 @@ black
 mypy
 pyflakes
 autoflake
+isort
 
 # testing
 hypothesis

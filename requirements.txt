@@ -47,6 +47,8 @@ idna==3.4
     # via requests
 iniconfig==1.1.1
     # via pytest
+isort==5.10.1
+    # via -r requirements.in
 jinja2==3.1.2
     # via spacy
 kaggle==1.5.12
