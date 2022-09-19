@@ -6,6 +6,8 @@ pandas
 
 # development
 black
+pyflakes
+autoflake
 
 # testing
 hypothesis
