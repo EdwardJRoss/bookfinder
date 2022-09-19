@@ -1,5 +1,7 @@
 include .env
 
+PYTHON_DIRS = bookfinder test
+
 .PHONY: test
 
 help:
@@ -12,6 +14,15 @@ reqs: requirements.txt requirements-model.txt
 
 requirements.txt: requirements.in
 	python -m piptools compile requirements.in
+
+format: ## Format code
+	@echo "Formatting code..."
+	python -m black $(PYTHON_DIRS)
+
+lint:   ## Static analysis
+	@echo "Linting code..."
+	python -m black --check $(PYTHON_DIRS)
+
 
 test: ## Run unit tests
 	python -m pytest test/

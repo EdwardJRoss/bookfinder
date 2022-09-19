@@ -4,6 +4,9 @@ kaggle
 
 pandas
 
+# development
+black
+
 # testing
 hypothesis
 pytest
