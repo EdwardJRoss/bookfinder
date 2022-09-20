@@ -4,6 +4,7 @@ from graphlib import TopologicalSorter
 from math import isnan
 from typing import TypeVar
 
+import pandas as pd
 import xxhash  # type: ignore
 from beartype import beartype
 
@@ -24,6 +25,12 @@ def get_root_mapping(parent_dict: dict[T, T]) -> dict[T, T]:
         else:
             root_dict[node] = root_dict[parent_dict[node]]
     return root_dict
+
+
+def enrich_root(df: pd.DataFrame) -> pd.DataFrame:
+    parent_dict = df["parent"].fillna(df.index.to_series()).to_dict()
+    root_dict = get_root_mapping(parent_dict)
+    return df.assign(root=df.index.map(root_dict))
 
 
 @beartype
@@ -52,12 +59,3 @@ def clean_text(s):
     for match, sub in CLEAN_PATTERNS.items():
         s = match.sub(sub, s)
     return html.unescape(s)
-
-
-def clean(text):
-    text = html.unescape(text)
-    text = text.replace("<i>", "")
-    text = text.replace("</i>", "")
-    text = text.replace("<p>", "\n\n")
-    text = re.sub('<a href="(.*?)".*?>.*?</a>', r"\1", text)
-    return text.strip()

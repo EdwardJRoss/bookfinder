@@ -1,9 +1,10 @@
 from graphlib import CycleError
 
+import pandas as pd
 from hypothesis import assume, given
 from hypothesis import strategies as st
 
-from bookfinder.transform import clean_text, get_root_mapping, hash_bucket
+from bookfinder.transform import clean_text, enrich_root, get_root_mapping, hash_bucket
 
 
 def test_get_root_mapping():
@@ -37,6 +38,28 @@ def test_get_root_mapping_parent_root(parent_dict):
         assume(False)
     for child, parent in parent_dict.items():
         assert root_dict[child] == root_dict[parent]
+
+
+def test_enrich_root():
+    df = pd.DataFrame(
+        {
+            "id": [1, 2, 3, 4, 5],
+            "parent": pd.Series([2, 3, 3, 5, None], dtype="Int64"),
+        }
+    ).set_index("id")
+    df_out = enrich_root(df)
+    assert df_out["root"].tolist() == [3, 3, 3, 5, 5]
+
+
+def test_enrich_root_pure():
+    df = pd.DataFrame(
+        {
+            "id": [1, 2, 3, 4, 5],
+            "parent": [2, 3, 3, 5, 5],
+        }
+    ).set_index("id")
+    _ = enrich_root(df)
+    assert "root" not in df.columns
 
 
 @given(st.floats(allow_nan=False))
