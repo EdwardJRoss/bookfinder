@@ -4,9 +4,10 @@ from graphlib import TopologicalSorter
 from math import isnan
 from typing import TypeVar
 
-import pandas as pd
+import pandera as pa
 import xxhash  # type: ignore
 from beartype import beartype
+from pandera.typing import DataFrame, Index, Series
 
 T = TypeVar("T")
 
@@ -27,10 +28,20 @@ def get_root_mapping(parent_dict: dict[T, T]) -> dict[T, T]:
     return root_dict
 
 
-def enrich_root(df: pd.DataFrame) -> pd.DataFrame:
+class ParentSchema(pa.SchemaModel):
+    id: Index[int]
+    parent: Series[int] = pa.Field(nullable=True)
+
+
+class ParentRootSchema(ParentSchema):
+    root: Series[int]
+
+
+@pa.check_types
+def enrich_root(df: DataFrame[ParentSchema]) -> DataFrame[ParentRootSchema]:
     parent_dict = df["parent"].fillna(df.index.to_series()).to_dict()
     root_dict = get_root_mapping(parent_dict)
-    return df.assign(root=df.index.map(root_dict))
+    return df.assign(root=df.index.map(root_dict)).pipe(DataFrame[ParentRootSchema])
 
 
 @beartype

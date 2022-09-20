@@ -4,6 +4,7 @@ kaggle
 xxhash
 pandas
 pandas-stubs
+pandera[mypy]
 beartype
 
 # development

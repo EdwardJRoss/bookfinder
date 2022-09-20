@@ -70,19 +70,29 @@ mypy-extensions==0.4.3
     # via
     #   black
     #   mypy
+    #   typing-inspect
 numpy==1.23.3
     # via
     #   pandas
+    #   pandera
+    #   pyarrow
     #   spacy
     #   thinc
 packaging==21.3
     # via
     #   build
+    #   pandera
     #   pytest
     #   spacy
 pandas==1.4.4
-    # via -r requirements.in
-pandas-stubs==1.4.4.220919
+    # via
+    #   -r requirements.in
+    #   pandera
+pandas-stubs==1.4.3.220807
+    # via
+    #   -r requirements.in
+    #   pandera
+pandera[mypy]==0.12.0
     # via -r requirements.in
 pathspec==0.10.1
     # via black
@@ -102,8 +112,11 @@ preshed==3.0.7
     #   thinc
 py==1.11.0
     # via pytest
+pyarrow==9.0.0
+    # via pandera
 pydantic==1.9.2
     # via
+    #   pandera
     #   spacy
     #   thinc
 pyflakes==2.5.0
@@ -169,6 +182,9 @@ typing-extensions==4.3.0
     # via
     #   mypy
     #   pydantic
+    #   typing-inspect
+typing-inspect==0.8.0
+    # via pandera
 urllib3==1.26.12
     # via
     #   kaggle
@@ -180,6 +196,8 @@ wasabi==0.10.1
     #   thinc
 wheel==0.37.1
     # via pip-tools
+wrapt==1.14.1
+    # via pandera
 xxhash==3.0.0
     # via -r requirements.in
 
