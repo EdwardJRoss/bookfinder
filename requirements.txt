@@ -82,6 +82,8 @@ packaging==21.3
     #   spacy
 pandas==1.4.4
     # via -r requirements.in
+pandas-stubs==1.4.4.220919
+    # via -r requirements.in
 pathspec==0.10.1
     # via black
 pathy==0.6.2
@@ -161,6 +163,8 @@ typer==0.4.2
     # via
     #   pathy
     #   spacy
+types-pytz==2022.2.1.0
+    # via pandas-stubs
 typing-extensions==4.3.0
     # via
     #   mypy
