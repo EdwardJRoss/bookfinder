@@ -1,3 +1,5 @@
+import html
+import re
 from graphlib import TopologicalSorter
 from math import isnan
 from typing import TypeVar
@@ -35,3 +37,27 @@ def hash_bucket(s: float, salt: str = "hnbooks") -> int:
     bucket = xxhash.xxh32_intdigest(str(s) + salt) % 100
     assert 0 <= bucket < 100
     return bucket
+
+
+CLEAN_PATTERNS = {
+    re.compile("<p>"): "\n\n",
+    re.compile("<i>"): r"",
+    re.compile("</i>"): r"",
+    re.compile('<a href="([^"]*)"[^>]*>.*?</a>'): r"\1",
+    re.compile("<pre><code>((?:.|\n)*?)</code></pre>", flags=re.MULTILINE): r"\1",
+}
+
+
+def clean_text(s):
+    for match, sub in CLEAN_PATTERNS.items():
+        s = match.sub(sub, s)
+    return html.unescape(s)
+
+
+def clean(text):
+    text = html.unescape(text)
+    text = text.replace("<i>", "")
+    text = text.replace("</i>", "")
+    text = text.replace("<p>", "\n\n")
+    text = re.sub('<a href="(.*?)".*?>.*?</a>', r"\1", text)
+    return text.strip()

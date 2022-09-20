@@ -3,7 +3,7 @@ from graphlib import CycleError
 from hypothesis import assume, given
 from hypothesis import strategies as st
 
-from bookfinder.transform import get_root_mapping, hash_bucket
+from bookfinder.transform import clean_text, get_root_mapping, hash_bucket
 
 
 def test_get_root_mapping():
@@ -42,3 +42,29 @@ def test_get_root_mapping_parent_root(parent_dict):
 @given(st.floats(allow_nan=False))
 def test_hash_bucket(s):
     hash_bucket(s)
+
+
+def test_clean_text():
+    text = (
+        "<i>&gt; they’re the only ones who can use FLOC</i>"
+        "<p>It is available to everyone:"
+        "<p><pre><code>"
+        "    cohort = await document.interestCohort();\n"
+        "</code></pre>\n"
+        'See <a href="https:&#x2F;&#x2F;github.com&#x2F;WICG&#x2F;floc" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;WICG&#x2F;floc</a>'
+        "<p>(Disclosure: I work for Google, speaking only for myself)"
+    )
+    clean = clean_text(text)
+
+    assert (
+        clean
+        == """> they’re the only ones who can use FLOC
+
+It is available to everyone:
+
+    cohort = await document.interestCohort();
+
+See https://github.com/WICG/floc
+
+(Disclosure: I work for Google, speaking only for myself)"""
+    )
