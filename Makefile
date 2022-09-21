@@ -46,7 +46,10 @@ data/01_raw/hackernews2021.parquet:
 	@echo "Fetching source data..."
 	kaggle datasets download -d edwardjross/hackernews-2021-comments-and-stories --unzip --path data/01_raw/
 
+data/02_intermediate/sample_data.jsonl:
+	python -m bookfinder ./data/01_raw/hackernews2021.parquet ./data/02_intermediate/sample_data.jsonl
+
 teach: ## Binary NER annotation for precision 
-teach:
+teach: data/02_intermediate/sample_data.jsonl
 	python -m prodigy ner.precise hnbook_ner_workofart_precise en_core_web_trf data/02_intermediate/sample_data.jsonl --label WORK_OF_ART -F ./bookfinder/recipe.py 
 
