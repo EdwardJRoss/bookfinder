@@ -1,5 +1,6 @@
 pip-tools
 spacy>=3.4.0,<3.5.0
+spacy-transformers<1.2.0,>=1.1.2
 kaggle
 xxhash
 pandas
