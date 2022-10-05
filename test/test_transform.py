@@ -1,4 +1,4 @@
-from graphlib import CycleError
+from graphlib import CycleError  # type: ignore
 
 import pandas as pd
 from hypothesis import assume, given

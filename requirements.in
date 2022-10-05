@@ -8,6 +8,9 @@ pandas-stubs
 pandera[mypy]
 beartype
 
+# For Python < 3.10
+graphlib-backport
+
 # development
 black
 mypy

@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 import html
 import re
-from graphlib import TopologicalSorter
+from graphlib import TopologicalSorter  # type: ignore
 from math import isnan
 from typing import TypeVar
 
