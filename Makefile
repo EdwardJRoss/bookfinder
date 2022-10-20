@@ -9,19 +9,24 @@ help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 install: ## Install
-install:
+install: requirements-download.in
 	@echo "Installing dependencies..."
-	python -m pip install --upgrade pip setuptools wheel
-	python -m pip install pip-tools
-	python -m piptools sync requirements.txt requirements-model.txt
-	python -m pip install prodigy -f https://${PRODIGY_KEY}@download.prodi.gy
+	python -m ensurepip --upgrade
+	python -m pip install --upgrade setuptools wheel
+	python -m pip install -r requirements.txt
 
-requirements.txt: requirements.in
-	python -m piptools compile requirements.in
+requirements-download.in: requirements-download.in.raw
+	pip download --requirement requirements-download.in.raw --no-deps --dest build/
+	find build/ -type f > requirements-download.in
+
+requirements.txt: requirements.in requirements-download.in
+	python -m piptools compile --no-emit-find-links --generate-hashes \
+        --output-file requirements.txt \
+        requirements.in requirements-download.in
 
 reqs: ## Update and sync requirements
-reqs: requirements.txt requirements-model.txt
-	python -m piptools sync requirements.txt requirements-model.txt
+reqs: requirements.txt
+	python -m piptools sync requirements.txt
 
 format: ## Format code
 	@echo "Formatting code..."

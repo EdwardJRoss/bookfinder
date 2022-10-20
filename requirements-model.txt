@@ -1,6 +1,0 @@
-# Model requirements
-# These are not managed by pip-tools because dependency resolution
-# requires downloading large files which is very slow.
-#
-# These require: spacy >=3.4.0,<3.5.0
-https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.4.0/en_core_web_trf-3.4.0-py3-none-any.whl

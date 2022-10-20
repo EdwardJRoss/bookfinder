@@ -8,3 +8,8 @@ data/*
 
 **/__pycache__/
 .hypothesis/
+
+build/
+
+# Exclude because this also downloads packages in makefile
+requirements-download.in
