@@ -42,13 +42,11 @@ def main(in_path: str, out_path: str) -> None:
     df["bucket"] = df["root"].astype(float).apply(hash_bucket)
 
     logger.info("Cleaning text")
-    df["clean_text"] = df.apply(
-        lambda _: (
-            np.where(_.title.isna(), "", _.title)
-            + np.where(~_.title.isna() & ~_.text.isna(), "<p>", "")
-            + _.text.fillna("")
-        ).apply(clean_text)
-    )
+    df["clean_text"] = (
+        np.where(df.title.isna(), "", df.title)
+        + np.where(~df.title.isna() & ~df.text.isna(), "<p>", "")
+        + df.text.fillna("")
+    ).apply(clean_text)
 
     logger.info("Filtering to buckets < 50 and children")
     df_filtered = (
