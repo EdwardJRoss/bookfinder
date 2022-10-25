@@ -9,6 +9,7 @@ pandas
 pandas-stubs
 pandera[mypy]
 beartype
+pyarrow
 
 # For Python < 3.10
 graphlib-backport

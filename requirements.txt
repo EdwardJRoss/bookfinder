@@ -99,6 +99,7 @@ numpy==1.23.4
     #   blis
     #   pandas
     #   pandera
+    #   pyarrow
     #   spacy
     #   thinc
     #   transformers
@@ -139,6 +140,8 @@ prodigy==1.11.8
     # via -r requirements.in
 py==1.11.0
     # via pytest
+pyarrow==9.0.0
+    # via -r requirements.in
 pydantic==1.8.2
     # via
     #   confection
