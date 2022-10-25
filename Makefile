@@ -31,7 +31,7 @@ update:
 
 reqs: ## Update and sync requirements
 reqs: requirements.txt
-	python -m piptools sync --find-links links.html requirements.txt
+	python -m piptools sync --find-links spacy_model_links.html requirements.txt
 
 format: ## Format code
 	@echo "Formatting code..."
