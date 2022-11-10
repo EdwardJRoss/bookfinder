@@ -11,11 +11,17 @@ pandera[mypy]
 beartype
 pyarrow
 
+sentence-transformers
+
 # For Python < 3.10
 graphlib-backport
 
 # development
 jupyterlab
+jupyterlab-prodigy
+ipywidgets
+jupyterlab-widgets
+matplotlib
 
 black
 mypy
