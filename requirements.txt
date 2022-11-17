@@ -106,7 +106,7 @@ en-core-web-trf==3.4.1
     # via -r requirements.in
 entrypoints==0.4
     # via jupyter-client
-evaluate==0.2.2
+evaluate==0.3.0
     # via setfit
 exceptiongroup==1.0.0rc9
     # via hypothesis
