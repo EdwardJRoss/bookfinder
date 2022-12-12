@@ -3,6 +3,7 @@ prodigy
 en_core_web_trf>=3.4.0,<3.5.0
 
 spacy>=3.4.0,<3.5.0
+cupy-cuda11x==11.3.0
 kaggle
 xxhash
 pandas

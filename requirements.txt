@@ -79,6 +79,8 @@ confection==0.0.3
     # via thinc
 contourpy==1.0.6
     # via matplotlib
+cupy-cuda11x==11.3.0
+    # via -r requirements.in
 cycler==0.11.0
     # via matplotlib
 cymem==2.0.7
@@ -116,6 +118,8 @@ fastapi==0.74.1
     # via prodigy
 fastjsonschema==2.16.2
     # via nbformat
+fastrlock==0.8.1
+    # via cupy-cuda11x
 filelock==3.8.0
     # via
     #   huggingface-hub
@@ -304,6 +308,7 @@ numpy==1.23.4
     # via
     #   blis
     #   contourpy
+    #   cupy-cuda11x
     #   datasets
     #   evaluate
     #   matplotlib
