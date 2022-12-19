@@ -16,6 +16,8 @@ sentence-transformers
 setfit
 datasets
 
+seqeval
+
 # For Python < 3.10
 graphlib-backport
 
