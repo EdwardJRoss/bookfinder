@@ -15,12 +15,6 @@ pyarrow
 sentence-transformers
 setfit
 datasets
-# Dependency Resolution:
-#  - Current Setfit fixes datasets==2.3.2
-#  - Datasets 2.3.2 requires dill<0.3.6
-#  - multiprocess 0.70.14 requires dill>=0.3.6
-# Can remove when packages update
-multiprocess<0.70.14
 
 # For Python < 3.10
 graphlib-backport
